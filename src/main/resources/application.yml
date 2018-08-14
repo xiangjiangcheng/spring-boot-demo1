@@ -1,0 +1,13 @@
+server:
+  port: 18083   #项目访问端口 如果将项目打成war包，部署到外部的tomcat中 这个时候看，该配置不起作用！需访问外部tomcat设置的端口
+  tomcat:
+    uri-encoding: UTF-8
+# datasource
+spring:
+  datasource:
+      url: jdbc:mysql://192.168.0.201:3306/test?characterEncoding=utf8
+      username: xiaodi
+      password: xiaodi
+
+
+
