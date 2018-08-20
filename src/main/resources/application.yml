@@ -2,12 +2,18 @@ server:
   port: 18083   #项目访问端口 如果将项目打成war包，部署到外部的tomcat中 这个时候看，该配置不起作用！需访问外部tomcat设置的端口
   tomcat:
     uri-encoding: UTF-8
-# datasource
+# datasource  #配置数据源
 spring:
-  datasource:
-      url: jdbc:mysql://192.168.0.201:3306/test?characterEncoding=utf8
-      username: xiaodi
-      password: xiaodi
+  #配置数据源
+  datasource: # mysql
+      url: jdbc:mysql://132.232.54.105:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
 
+#指定mybatis映射文件的地址  该配置节点为独立的节点，有很多同学容易将这个配置放在spring的节点下，导致配置无法被识别
+mybatis:
+  mapper-locations: classpath:mapping/*.xml     #classpath: 表示resources目录 注意：一定要对应mapper映射xml文件的所在路径
+  #type-aliases-package: com.example.demo1.entity  # 注意：对应实体类的路径
 
 
