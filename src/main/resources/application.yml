@@ -15,5 +15,3 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*.xml     #classpath: 表示resources目录 注意：一定要对应mapper映射xml文件的所在路径
   #type-aliases-package: com.example.demo1.entity  # 注意：对应实体类的路径
-
-
