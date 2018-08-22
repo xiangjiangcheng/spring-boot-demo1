@@ -18,4 +18,9 @@ public class OrderController {
         return "findAll";
     }
 
+    @GetMapping("/home")
+    public String home() {
+        return "forward:/home.html";
+    }
+
 }

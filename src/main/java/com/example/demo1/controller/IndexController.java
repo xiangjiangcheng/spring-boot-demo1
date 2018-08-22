@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/")
 public class IndexController {
 
+    @GetMapping("/home")
+    public String home() {
+
+        return "forward:/home.html";
+    }
+
     @GetMapping("/login")
     public String login(Model model, @RequestParam(value = "error", required = false) String error) {
         if (error != null) {

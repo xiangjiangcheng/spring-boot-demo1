@@ -31,8 +31,15 @@ public class KdwlController {
     @GetMapping("/q_wl_info")
     public String queryWlInfo() {
 
-        String host = "http://kdwlcxf.market.alicloudapi.com";
-        String path = "/kdwlcx";
+        // String host = "http://kdwlcxf.market.alicloudapi.com";
+        // String path = "/kdwlcx";
+
+        // String host = "https://wdexpress.market.alicloudapi.com";
+        // String path = "/gxali";
+
+        String host = "https://wuliu.market.alicloudapi.com";
+        String path = "/kdi";
+
         String method = "GET";
         System.out.println("请先替换成自己的AppCode");
         String appcode = "fadde964aead4dcabfbb7dfac600c44f";  // !!! 替换这里填写你自己的AppCode 请在买家中心查看

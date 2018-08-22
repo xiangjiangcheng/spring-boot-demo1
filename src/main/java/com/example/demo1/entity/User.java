@@ -1,28 +1,34 @@
 package com.example.demo1.entity;
 
 public class User {
-    private Integer userId;
+    private Integer id;
 
-    private String userName;
+    private String username;
 
     private String password;
 
-    private String phone;
+    private String state;
 
-    public Integer getUserId() {
-        return userId;
+    private String name;
+
+    private String gender;
+
+    private String birth;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -33,11 +39,35 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getState() {
+        return state;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setState(String state) {
+        this.state = state == null ? null : state.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender == null ? null : gender.trim();
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth == null ? null : birth.trim();
     }
 }
