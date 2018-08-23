@@ -27,8 +27,9 @@ CREATE TABLE `tbl_role` (
 -- ----------------------------
 -- Records of tbl_role
 -- ----------------------------
-INSERT INTO `tbl_role` VALUES ('4', 'ADMIN');
-INSERT INTO `tbl_role` VALUES ('5', 'USER');
+INSERT INTO `tbl_role` VALUES ('4', 'ROLE_ADMIN');
+INSERT INTO `tbl_role` VALUES ('5', 'ROLE_USER');
+INSERT INTO `tbl_role` VALUES ('6', 'ROLE_HR');
 
 -- ----------------------------
 -- Table structure for tbl_user

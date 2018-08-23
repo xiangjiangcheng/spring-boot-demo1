@@ -38,7 +38,11 @@ public class SecurityProvider implements AuthenticationProvider {
         //     return null;
         // }
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
+        // 这个获取表单输入中返回的用户名
         String username = token.getName();
+        // 这个是表单中输入的密码
+        // String password = (String) token.getPrincipal();
+
         UserDetails userDetails = null;
 
         if (username != null) {
@@ -63,6 +67,26 @@ public class SecurityProvider implements AuthenticationProvider {
         }
 
         String password = userDetails.getPassword();
+
+        // //这里我们还要判断密码是否正确，实际应用中，我们的密码一般都会加密，以Md5加密为例
+        // Md5PasswordEncoder md5PasswordEncoder=new Md5PasswordEncoder();
+        // //这里第个参数，是salt
+        // 就是加点盐的意思，这样的好处就是用户的密码如果都是123456，由于盐的不同，密码也是不一样的，就不用怕相同密码泄漏之后，不会批量被破解。
+        // String encodePwd=md5PasswordEncoder.encodePassword(password, userName);
+        // //这里判断密码正确与否
+        // if(!userInfo.getPassword().equals(encodePwd))
+        // {
+        // throw new BadCredentialsException("密码不正确");
+        // }
+        // //这里还可以加一些其他信息的判断，比如用户账号已停用等判断，这里为了方便我接下去的判断，我就不用加密了。
+        //
+        //
+        //对密码进行 md5 加密  loginPassword是登录密码
+        // String loginPassword = (String) token.getCredentials();
+        //
+        // String md5Password = DigestUtils.md5DigestAsHex(loginPassword.getBytes());
+
+        //判断密码是否正确
         //与authentication里面的credentials相比较
         if (!password.equals(token.getCredentials())) {
             throw new BadCredentialsException("Invalid username/password");

@@ -2,6 +2,7 @@ package com.example.demo1.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -31,6 +32,7 @@ import java.io.IOException;
  * Created by xiangjiangcheng on 2018/8/20 14:37.
  */
 @Configuration
+// @EnableWebSecurity(debug = true)
 @EnableWebSecurity
 public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -60,9 +62,13 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                // .antMatchers("/orders/**").hasRole("USER")    //用户权限
-                // .antMatchers("/user/**").hasRole("ADMIN")    //管理员权限
-                .anyRequest().authenticated() //任何请求,登录后可以访问
+                .antMatchers("/orders/**").hasAnyRole("USER", "ADMIN")    //用户权限
+                .antMatchers("/user/**").hasRole("ADMIN")    //管理员权限
+                // 对于获取token的rest api要允许匿名访问
+                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/druid/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/entries/**", "/articles/**").permitAll()
+                .anyRequest().authenticated() //除上面外的所有请求 其余全部需要鉴权认证,登录后可以访问
                 .and()
                 .formLogin()
                 .loginPage("/login")    //跳转登录页面的控制器，该地址要保证和表单提交的地址一致！
