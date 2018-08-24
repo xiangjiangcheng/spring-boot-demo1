@@ -83,7 +83,7 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
                             System.out.println("loginUser:"+user.getUsername());
                             //维护在session中
                             arg0.getSession().setAttribute("userDetail", user);
-                            arg1.sendRedirect("/home");
+                            arg1.sendRedirect("/greeting");
                         }
                     }
                 })

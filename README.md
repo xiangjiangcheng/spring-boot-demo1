@@ -14,3 +14,20 @@
 命令： mybatis-generator:generate -e
 
 ##### 阿里云物流API
+
+接入阿里云物流API接口
+
+##### logback
+
+[SpringBoot Logback日志配置](https://www.cnblogs.com/lspz/p/6473686.html)
+
+
+
+##### 项目更新日志
+
+<font color=red>2018-08-24 </font>  
+1.add logback.xml | 新增权限表，角色权限关系表，实体等 
+
+2.引入thymeleaf模板
+
+3.调整项目目录结构
