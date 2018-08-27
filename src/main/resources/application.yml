@@ -13,7 +13,7 @@ spring:
   #thymelea模板配置
   thymeleaf:
     prefix: classpath:/templates/
-    suffix: .html
+    suffix: .html   # 模板后缀
     mode: HTML5
     encoding: UTF-8
     servlet:

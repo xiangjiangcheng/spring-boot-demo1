@@ -6,7 +6,7 @@
 
 [Mybatis的注解应用之关系映射](https://blog.csdn.net/owen_william/article/details/51815473)
 
-
+[spring-boot研究四：springboot + security + easyui + mysql实现权限控制](https://blog.csdn.net/zjj2006/article/details/80870384)
 
 
 ##### generate
