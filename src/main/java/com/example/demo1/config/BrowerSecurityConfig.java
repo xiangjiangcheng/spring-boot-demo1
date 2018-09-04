@@ -68,6 +68,8 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/druid/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/entries/**", "/articles/**").permitAll()
+                // 静态资源
+                .antMatchers("/css/**", "/js/**", "/image/**").permitAll()
                 .anyRequest().authenticated() //除上面外的所有请求 其余全部需要鉴权认证,登录后可以访问
                 .and()
                 .formLogin()
@@ -94,12 +96,25 @@ public class BrowerSecurityConfig extends WebSecurityConfigurerAdapter {
                     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)
                             throws IOException, ServletException {
                         System.out.println("error："+authenticationException.getMessage());
-                        response.sendRedirect("/login");
+                        response.sendRedirect("/login?error");
                     }
                 })
+                //设置默认登录成功跳转页面
+                // .defaultSuccessUrl("/index").failureUrl("/login?error").permitAll()
                 .permitAll()
                 .and()
+                //开启cookie保存用户数据
+                .rememberMe()
+                //设置cookie有效期
+                .tokenValiditySeconds(60 * 60 * 24 * 7)
+                //设置cookie的私钥
+                // .key("")
+                .and()
                 .logout()
+                //默认注销行为为logout，可以通过下面的方式来修改
+                .logoutUrl("/custom-logout")
+                //设置注销成功后跳转页面，默认是跳转到登录页面
+                .logoutSuccessUrl("/login")
                 .permitAll()  //注销行为任意访问
                 .and()
                 .csrf().disable();        //暂时禁用CSRF，否则无法提交表单

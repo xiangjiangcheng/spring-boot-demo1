@@ -4,6 +4,10 @@ server:
     uri-encoding: UTF-8
 # datasource  #配置数据源
 spring:
+  #激活devtools的livereload功能 热部署
+  devtools:
+      livereload:
+        enabled: true
   #配置数据源
   datasource: # mysql
       url: jdbc:mysql://132.232.54.105:3306/test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
@@ -12,7 +16,7 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
   #thymelea模板配置
   thymeleaf:
-    prefix: classpath:/templates/
+    prefix: classpath:/templates/    # 文件目录
     suffix: .html   # 模板后缀
     mode: HTML5
     encoding: UTF-8
